@@ -1,0 +1,27 @@
+{
+  "name": "simditor-attr",
+  "version": "1.0.0",
+  "description": "simditor attr plugin",
+  "main": "src/simditor-attr.coffee",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shenqihui/simditor-attr.git"
+  },
+  "author": "tinyfive",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shenqihui/simditor-attr/issues"
+  },
+  "homepage": "https://github.com/shenqihui/simditor-attr",
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-contrib-jasmine": "0.x",
+    "grunt-umd": "2.x"
+  }
+}
