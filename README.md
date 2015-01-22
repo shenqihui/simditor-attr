@@ -1,5 +1,5 @@
 # Simditor Attr
-[![Circle CI](https://circleci.com/gh/mycolorway/simditor-emoji.png?style=badge)](https://circleci.com/gh/mycolorway/simditor-emoji)
+[![Circle CI](https://circleci.com/gh/shenqihui/simditor-attr.png?style=badge)](https://circleci.com/gh/mycolorway/simditor-emoji)
 
 
 [Simditor](http://simditor.tower.im/) 的第三方扩展，为工具栏提高按钮，能够编辑 tag 属性，使用之前记得开放 simdtor 的 attr 过滤。
