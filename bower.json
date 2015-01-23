@@ -24,7 +24,7 @@
   },
   "dependencies": {
       "jquery": "~2.1.0",
-      "simditor": "shenqihui/simditor#attr-all-1.0.1",
+      "simditor": "shenqihui/simditor#attr-all-1.1.0",
       "fontawesome": "4.x",
       "simple-module": "2.x",
       "simple-uploader": "2.x",
