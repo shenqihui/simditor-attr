@@ -26,11 +26,12 @@
         });
         btn = $('.simditor-toolbar .toolbar-item-attr');
         input = $('.attr-popover .attr-settings input[data-attr]').first();
-        return sure = $('.simditor-toolbar .attr-sure');
+        return sure = $('.attr-popover .attr-sure');
       });
       it('should render attr button', function() {
         expect(btn).toExist();
-        return expect(menu).toExist();
+        expect(input).toExist();
+        return expect(sure).toExist();
       });
       return it('should work all right on insert a attr', function() {
         editor.focus();

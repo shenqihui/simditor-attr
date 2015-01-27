@@ -22,9 +22,6 @@ class AttrButton extends Simditor.Button
     @attrElem = $($startBlock)
 
     @popover.one 'popovershow', =>
-      console.log 'popovershow', $($startBlock)
-      # window.aaa = $($startBlock) 
-      # window.bbb = $startBlock
       @popover.settingsTitle.text $startBlock.get(0).outerHTML+'的'
       # todo init attr value 
       input = @popover.settingsField.find '.attr-value'

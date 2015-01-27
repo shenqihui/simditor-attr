@@ -21,12 +21,13 @@ describe 'Simditor Attr', ->
         attrAllow: ['id', 'class', 'style']
       btn = $('.simditor-toolbar .toolbar-item-attr')
       input = $('.attr-popover .attr-settings input[data-attr]').first()
-      sure = $('.simditor-toolbar .attr-sure')
+      sure = $('.attr-popover .attr-sure')
 
 
     it 'should render attr button', ->
       expect(btn).toExist()
-      expect(menu).toExist()
+      expect(input).toExist()
+      expect(sure).toExist()
 
     it 'should work all right on insert a attr', ->
       editor.focus()
