@@ -22,16 +22,16 @@ class AttrButton extends Simditor.Button
     @attrElem = $($startBlock)
 
     @popover.one 'popovershow', =>
-      console.log 'popovershow'
-
-      @popover.settingsTitle.text $($startBlock).html()+'的'
+      console.log 'popovershow', $($startBlock)
+      # window.aaa = $($startBlock) 
+      # window.bbb = $startBlock
+      @popover.settingsTitle.text $startBlock.get(0).outerHTML+'的'
       # todo init attr value 
       input = @popover.settingsField.find '.attr-value'
       input.map (index, elem) =>
         $self = $ elem
         attr = $self.data 'attr'
         val = @attrElem.attr(attr) || ''
-        console.log val
         $self.val val
 
 
@@ -64,11 +64,11 @@ class AttrPopover extends Simditor.Popover
     tpl = """
       <div class="attr-settings">
         <div><span class="attr-for-title"></span>属性编辑器</div>
-        <div>
-          <ul class="attr-settings-field">
+        <div class="attr-settings-field">
+          <ul>
           </ul>
         </div>
-        <div class="">
+        <div class="action-button">
           <button class="attr-sure">Sure</button>
           <button class="attr-cancle">Cancle</button>
         </div>
@@ -87,7 +87,7 @@ class AttrPopover extends Simditor.Popover
       .append(tpl)
 
     @settingsTitle = @el.find '.attr-for-title'
-    @settingsField = @el.find '.attr-settings-field'
+    @settingsField = @el.find '.attr-settings-field ul'
     @settingsElem = $(html)
     @settingsField.append @settingsElem
 
@@ -111,6 +111,7 @@ class AttrPopover extends Simditor.Popover
       e.preventDefault()
       setTimeout =>
         @hide()
+    @el
 
 
   show: (args...) ->

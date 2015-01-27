@@ -70,12 +70,19 @@ module.exports = (grunt) ->
             'vendor/bower/simditor/lib/simditor.js'
           ]
 
+    express:
+      server:
+        options:
+          server: 'server.js'
+          bases: './'
+
 
   grunt.loadNpmTasks 'grunt-contrib-sass'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-contrib-jasmine'
   grunt.loadNpmTasks 'grunt-umd'
+  grunt.loadNpmTasks 'grunt-express'
 
-  grunt.registerTask 'default', ['sass', 'coffee', 'umd', 'jasmine:test:build', 'watch']
+  grunt.registerTask 'default', ['sass', 'express', 'coffee', 'umd', 'jasmine:test:build', 'watch']
   grunt.registerTask 'test', ['sass', 'coffee', 'umd', 'jasmine']

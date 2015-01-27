@@ -1,4 +1,4 @@
-describe 'Simditor Emoji', ->
+describe 'Simditor Attr', ->
   editor = null
   $textarea = null
   btn = null
@@ -17,44 +17,36 @@ describe 'Simditor Emoji', ->
       $textarea = $('<textarea id="editor"></textarea>').appendTo 'body'
       editor = new Simditor
         textarea: $textarea
-        toolbar: ['emoji', 'bold']
+        toolbar: ['attr', 'bold']
+        attrAllow: ['id', 'class', 'style']
+      btn = $('.simditor-toolbar .toolbar-item-attr')
+      input = $('.attr-popover .attr-settings input[data-attr]').first()
+      sure = $('.simditor-toolbar .attr-sure')
 
-      btn = $('.simditor-toolbar .toolbar-item-emoji')
-      menu = $('.simditor-toolbar .toolbar-menu-emoji')
 
-    it 'should render emoji button', ->
+    it 'should render attr button', ->
       expect(btn).toExist()
       expect(menu).toExist()
 
-    it 'should work all right on insert a emoji', ->
+    it 'should work all right on insert a attr', ->
       editor.focus()
       btn.click()
-      menu.find('li:first').mousedown()
-      expect(editor.body.find('img[data-emoji]')).toExist()
+      input.val('test-attr-class')
+      expect(editor.body.find('.test-attr-class')).toExist()
 
   describe 'config', ->
     beforeEach ->
       $textarea = $('<textarea id="editor"></textarea>').appendTo 'body'
 
     it 'should work all right on custom config', ->
-      path = '/simditor/emoji/images/'
 
       editor = new Simditor
         textarea: $textarea
-        toolbar: ['emoji', 'bold']
-        emoji:
-          imagePath: path
-          images: ['smile']
+        toolbar: ['attr', 'bold']
 
-      btn = $('.simditor-toolbar .toolbar-item-emoji')
-      menu = $('.simditor-toolbar .toolbar-menu-emoji')
+      btn = $('.simditor-toolbar .toolbar-item-attr')
+      input = $('.attr-popover .attr-settings input[data-attr]')
+      sure = $('.simditor-toolbar .attr-sure')
 
-      expect(menu.find('li').length).toBe 1
-
-      editor.focus()
-      btn.click()
-      menu.find('li:first').mousedown()
-
-      src = editor.body.find('img[data-emoji]').attr('src')
-      expect((new RegExp(path)).test(src)).toBeTruthy()
+      expect(input.length).toBe 3
 

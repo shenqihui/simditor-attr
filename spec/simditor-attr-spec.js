@@ -1,5 +1,5 @@
 (function() {
-  describe('Simditor Emoji', function() {
+  describe('Simditor Attr', function() {
     var $textarea, btn, editor, menu;
     editor = null;
     $textarea = null;
@@ -17,23 +17,26 @@
     });
     describe('features', function() {
       beforeEach(function() {
+        var input, sure;
         $textarea = $('<textarea id="editor"></textarea>').appendTo('body');
         editor = new Simditor({
           textarea: $textarea,
-          toolbar: ['emoji', 'bold']
+          toolbar: ['attr', 'bold'],
+          attrAllow: ['id', 'class', 'style']
         });
-        btn = $('.simditor-toolbar .toolbar-item-emoji');
-        return menu = $('.simditor-toolbar .toolbar-menu-emoji');
+        btn = $('.simditor-toolbar .toolbar-item-attr');
+        input = $('.attr-popover .attr-settings input[data-attr]').first();
+        return sure = $('.simditor-toolbar .attr-sure');
       });
-      it('should render emoji button', function() {
+      it('should render attr button', function() {
         expect(btn).toExist();
         return expect(menu).toExist();
       });
-      return it('should work all right on insert a emoji', function() {
+      return it('should work all right on insert a attr', function() {
         editor.focus();
         btn.click();
-        menu.find('li:first').mousedown();
-        return expect(editor.body.find('img[data-emoji]')).toExist();
+        input.val('test-attr-class');
+        return expect(editor.body.find('.test-attr-class')).toExist();
       });
     });
     return describe('config', function() {
@@ -41,24 +44,15 @@
         return $textarea = $('<textarea id="editor"></textarea>').appendTo('body');
       });
       return it('should work all right on custom config', function() {
-        var path, src;
-        path = '/simditor/emoji/images/';
+        var input, sure;
         editor = new Simditor({
           textarea: $textarea,
-          toolbar: ['emoji', 'bold'],
-          emoji: {
-            imagePath: path,
-            images: ['smile']
-          }
+          toolbar: ['attr', 'bold']
         });
-        btn = $('.simditor-toolbar .toolbar-item-emoji');
-        menu = $('.simditor-toolbar .toolbar-menu-emoji');
-        expect(menu.find('li').length).toBe(1);
-        editor.focus();
-        btn.click();
-        menu.find('li:first').mousedown();
-        src = editor.body.find('img[data-emoji]').attr('src');
-        return expect((new RegExp(path)).test(src)).toBeTruthy();
+        btn = $('.simditor-toolbar .toolbar-item-attr');
+        input = $('.attr-popover .attr-settings input[data-attr]');
+        sure = $('.simditor-toolbar .attr-sure');
+        return expect(input.length).toBe(3);
       });
     });
   });
